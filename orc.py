@@ -486,7 +486,7 @@ def main():
             if status in ["WIN", "LOSE"]:
                 st.write(f"**{msg}**")
                 # add a button that resets the game
-                if st.button("Play again", key="play_again"):
+                if st.button("Play again"):
                     st.session_state["shistory"] = []
                     st.session_state["history"] = []
                     st.session_state["data"] = start_data
