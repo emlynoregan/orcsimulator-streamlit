@@ -449,7 +449,9 @@ def main():
             #                     if "chicken" in key.lower():
             #                         placeholders[key].empty()
 
-            if user_msg:
+            last_user_msg = streamlit_history[-1][1] if streamlit_history else None
+
+            if user_msg and user_msg != last_user_msg:
                 human_action, data, history, streamlit_history = process_human_turn(user_msg, turn_num, data, history, streamlit_history)
                 user_msg = None
                 status = human_action[2]
