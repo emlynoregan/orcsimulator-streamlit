@@ -456,7 +456,9 @@ def main():
                 user_msg = None
                 status = human_action[2]
 
-            if not status in ["WIN", "LOSE"]:
+            last_msg_is_orc = not(streamlit_history[-1][0] if streamlit_history else None)
+
+            if not status in ["WIN", "LOSE"] and not last_msg_is_orc:
                 orc_action, data, history, streamlit_history = process_orc_turn(turn_num, data, history, streamlit_history)
                 status = orc_action[2]
 
